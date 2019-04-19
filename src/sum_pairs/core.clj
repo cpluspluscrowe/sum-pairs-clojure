@@ -1,8 +1,6 @@
 (ns sum-pairs.core
   (:gen-class))
 
-(defstruct pair :i :j :sum)
-
 (defn pair-key-val [key val]
     (+ key val)
   )
@@ -24,7 +22,7 @@
 
 
 (defn -main
-  "I don't do a whole lot ... yet."
+  "Solves hackerrank problem Sum Pairs"
   [& args]
   (def input [1 3 2 6 1 2])
   (def k 3)
