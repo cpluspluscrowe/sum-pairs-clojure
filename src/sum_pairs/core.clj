@@ -16,9 +16,10 @@
     (create-pairs vals (+ index 1) new-pairs)))
 
 (defn is-mod-k [k val]
-  (if (= (mod val k) 0)
-    1
-    0))
+  (cond (< val k) 0
+        (= (mod val k) 0) 1
+        :else 0)
+  )
 
 (defn add-divisibles [k pairs]
   (reduce + (map (partial is-mod-k k) pairs)))
@@ -42,6 +43,20 @@
   (is (= pairs [3 3]))
   )
 
+(deftest pairing4
+  (is (= (add-divisibles 1 [1 2 3 4])
+         4))
+  )
+
+(deftest pairing5
+  (is (= (add-divisibles 2 [2 4 3])
+         2))
+  )
+
+(deftest pairing6
+  (is (= (add-divisibles 2 [0 4 3])
+         1))
+  )
 
 
 (defn -main
