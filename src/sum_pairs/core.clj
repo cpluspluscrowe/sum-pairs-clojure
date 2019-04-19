@@ -5,6 +5,7 @@
   (+ key val))
 
 (defn create-pairs [vals, index, pairs]
+  (if (= (count vals) 0) [])
   (def current (nth vals index))
   (def filtered-vals (filter (partial < current) vals))
   (def new-pairs (reduce conj pairs
