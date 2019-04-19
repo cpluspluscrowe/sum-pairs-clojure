@@ -12,7 +12,7 @@
   (def new-pairs (reduce conj pairs
                          (map (partial pair-key-val current) filtered-vals)))
   (if (= (- (count vals) 1) index)
-    pairs
+    new-pairs
     (create-pairs vals (+ index 1) new-pairs)))
 
 (defn is-mod-k [k val]
@@ -33,8 +33,8 @@
   "Solves hackerrank problem Sum Pairs"
   [& args]
   (run-all-tests)
-  (def input [1 3 2 6 1 2])
-  (def k 3)
+  (def input [5 9 10 7 4])
+  (def k 2)
   (def pairs (create-pairs input 0 []))
   (println (add-divisibles k pairs)))
 
