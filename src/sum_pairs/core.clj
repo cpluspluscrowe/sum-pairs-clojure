@@ -14,6 +14,16 @@
     pairs
     (create-pairs vals (+ index 1) new-pairs)))
 
+(defn is-mod-k [k val]
+  (if (= (mod val k) 0)
+    1
+    0)
+  )
+
+(reduce + (map (partial is-mod-k 2) [2 4 6]))
+
+
+
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
