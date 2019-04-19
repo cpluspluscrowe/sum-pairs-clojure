@@ -19,15 +19,16 @@
     1
     0))
 
-(defn add-divisibles [k vals]
-  (reduce + (map (partial is-mod-k k)
-
-                 (create-pairs vals 0 []))))
+(defn add-divisibles [k pairs]
+  (reduce + (map (partial is-mod-k k) pairs))
+  )
 
 (defn -main
   "Solves hackerrank problem Sum Pairs"
   [& args]
   (def input [1 3 2 6 1 2])
   (def k 3)
-  (println (add-divisibles k input)))
+  (def pairs (create-pairs input 0 []))
+  (println (add-divisibles k pairs))
+  )
 
