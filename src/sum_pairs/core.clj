@@ -2,8 +2,7 @@
   (:gen-class))
 
 (defn pair-key-val [key val]
-    (+ key val)
-  )
+  (+ key val))
 
 (defn create-pairs [vals, index, pairs]
   (def current (nth vals index))
@@ -17,19 +16,17 @@
 (defn is-mod-k [k val]
   (if (= (mod val k) 0)
     1
-    0)
-  )
+    0))
 
+(defn add-divisibles [k vals]
+  (reduce + (map (partial is-mod-k k)
+
+                 (create-pairs vals 0 []))))
 
 (defn -main
   "Solves hackerrank problem Sum Pairs"
   [& args]
   (def input [1 3 2 6 1 2])
   (def k 3)
-(println  (reduce + (map (partial is-mod-k k)
-
-                 (create-pairs input 0 [])
-                 ))
-          )
-  )
+  (println (add-divisibles k input)))
 
